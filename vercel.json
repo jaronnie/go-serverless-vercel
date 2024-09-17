@@ -1,8 +1,10 @@
 {
-  "builds": {
-    "src": "api/(.*)",
-    "use": "@vercel/go"
-  },
+  "builds": [
+    {
+      "src": "api/(.*)",
+      "use": "@vercel/go"
+    }
+  ],
   "github": {
     "silent": true
   }
