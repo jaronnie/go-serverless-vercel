@@ -1,10 +1,8 @@
 {
-  "builds": [
+  "routes": [
     {
-      "use": "@vercel/go"
+      "src": "/.*",
+      "dest": "/api/index.go"
     }
-  ],
-  "github": {
-    "silent": true
-  }
+  ]
 }
