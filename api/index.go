@@ -2,15 +2,23 @@ package api
 
 import (
 	"encoding/json"
+	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
-func Pulls(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	response := map[string]any{
-		"message": "100",
-	}
-	marshal, _ := json.Marshal(response)
-	_, _ = w.Write(marshal)
+var engine *gin.Engine
+
+func init() {
+	engine = gin.New()
+	engine.GET("/github/image/pulls", func(context *gin.Context) {
+		response := map[string]any{
+			"message": "120",
+		}
+		marshal, _ := json.Marshal(response)
+		_, _ = context.Writer.Write(marshal)
+	})
+}
+
+func Index(w http.ResponseWriter, r *http.Request) {
+	engine.ServeHTTP(w, r)
 }
