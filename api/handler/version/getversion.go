@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/zeromicro/go-zero/rest/httpx"
-	"go-serverless-vercel/internal/logic/version"
-	"go-serverless-vercel/internal/svc"
-	"go-serverless-vercel/internal/types"
+	"go-serverless-vercel/api/logic/version"
+	"go-serverless-vercel/api/svc"
+	"go-serverless-vercel/api/types"
 )
 
 func GetVersion(svcCtx *svc.ServiceContext) http.HandlerFunc {

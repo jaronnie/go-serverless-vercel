@@ -6,8 +6,8 @@ package handler
 import (
 	"net/http"
 
-	version "go-serverless-vercel/internal/handler/version"
-	"go-serverless-vercel/internal/svc"
+	version "go-serverless-vercel/api/handler/version"
+	"go-serverless-vercel/api/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

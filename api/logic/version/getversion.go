@@ -3,8 +3,8 @@ package version
 import (
 	"context"
 
-	"go-serverless-vercel/internal/svc"
-	"go-serverless-vercel/internal/types"
+	"go-serverless-vercel/api/svc"
+	"go-serverless-vercel/api/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

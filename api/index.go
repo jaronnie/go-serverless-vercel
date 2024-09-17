@@ -1,14 +1,13 @@
-package main
+package api
 
 import (
 	"flag"
-	"go-serverless-vercel/internal/config"
-	"go-serverless-vercel/internal/handler"
-	"go-serverless-vercel/internal/svc"
-	"net/http"
-
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"
+	"go-serverless-vercel/api/config"
+	"go-serverless-vercel/api/handler"
+	"go-serverless-vercel/api/svc"
+	"net/http"
 )
 
 var (
