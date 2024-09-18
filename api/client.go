@@ -1,8 +1,8 @@
 package api
 
 import (
+	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/service"
 	"github.com/zeromicro/go-zero/rest"
 	"go-serverless-vercel/server/config"
 	"go-serverless-vercel/server/handler"
@@ -18,13 +18,7 @@ var (
 
 func init() {
 	var c config.Config
-	c.Rest.RestConf = rest.RestConf{
-		Host: "0.0.0.0",
-		Port: 8001,
-		ServiceConf: service.ServiceConf{
-			Name: "go-serverless-vercel",
-		},
-	}
+	conf.MustLoad("../etc/etc.yaml", &c)
 
 	// set up logger
 	if err := logx.SetUp(c.Log.LogConf); err != nil {
