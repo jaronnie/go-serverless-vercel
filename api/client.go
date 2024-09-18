@@ -3,11 +3,11 @@ package api
 import (
 	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/rest"
+	"github.com/zeromicro/go-zero/core/service"
 	"go-serverless-vercel/server/config"
 	"go-serverless-vercel/server/handler"
 	"go-serverless-vercel/server/middleware"
 	"go-serverless-vercel/server/svc"
-	"go-serverless-vercel/server/service"
 	"net/http"
 	"os"
 )
