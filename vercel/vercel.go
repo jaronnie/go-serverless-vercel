@@ -21,7 +21,7 @@ func init() {
 	//conf.MustLoad(*configFile, &c)
 	c.RestConf = rest.RestConf{
 		Host: "0.0.0.0",
-		Port: 8001, g
+		Port: 8001,
 		ServiceConf: service.ServiceConf{
 			Name: "go-serverless-vercel",
 		},
