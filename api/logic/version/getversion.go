@@ -2,6 +2,7 @@ package version
 
 import (
 	"context"
+	"net/http"
 
 	"go-serverless-vercel/api/svc"
 	"go-serverless-vercel/api/types"
@@ -14,6 +15,8 @@ type GetVersion struct {
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
+
+func Handler(w http.ResponseWriter, r *http.Request) {}
 
 func NewGetVersion(ctx context.Context, svcCtx *svc.ServiceContext) *GetVersion {
 	return &GetVersion{
