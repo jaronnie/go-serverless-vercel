@@ -5,7 +5,7 @@
       "use": "@vercel/go",
       "src": "api/client.go",
       "config": {
-        "zeroConfig": false
+        "zeroConfig": true
       }
     }
   ],
