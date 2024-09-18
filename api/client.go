@@ -18,7 +18,13 @@ var (
 
 func init() {
 	var c config.Config
-	conf.MustLoad("etc.yaml", &c)
+	c.Rest.RestConf = rest.RestConf{
+		Host: "0.0.0.0",
+		Port: 8001,
+		ServiceConf: service.ServiceConf{
+			Name: "go-serverless-vercel",
+		},
+	}
 	config.C = c
 
 	// set up logger
