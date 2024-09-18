@@ -5,6 +5,7 @@ import (
 	"github.com/zeromicro/go-zero/rest"
 	"go-serverless-vercel/server/config"
 	"go-serverless-vercel/server/handler"
+	"go-serverless-vercel/server/middleware"
 	"go-serverless-vercel/server/svc"
 	"net/http"
 )
@@ -24,6 +25,7 @@ func init() {
 	}
 
 	server = rest.MustNewServer(c.RestConf)
+	middleware.RegisterMiddlewares(server)
 
 	ctx := svc.NewServiceContext(c)
 	handler.RegisterHandlers(server, ctx)
