@@ -18,7 +18,7 @@ var (
 
 func init() {
 	var c config.Config
-	conf.MustLoad("etc/etc.yaml", &c)
+	conf.MustLoad("etc.yaml", &c)
 	config.C = c
 
 	// set up logger
