@@ -12,7 +12,7 @@ import (
 
 var (
 	server     *rest.Server
-	configFile = flag.String("f", "etc/etc.yaml", "set config file")
+	configFile = flag.String("f", "../etc/etc.yaml", "set config file")
 )
 
 func init() {
