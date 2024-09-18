@@ -18,7 +18,7 @@ var (
 
 func init() {
 	var c config.Config
-	conf.MustLoad("../../etc/etc.yaml", &c)
+	conf.MustLoad("../../../etc/etc.yaml", &c)
 
 	// set up logger
 	if err := logx.SetUp(c.Log.LogConf); err != nil {
