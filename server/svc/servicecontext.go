@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"go-serverless-vercel/api/config"
+	"go-serverless-vercel/server/config"
 )
 
 type ServiceContext struct {
