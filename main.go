@@ -1,4 +1,4 @@
-package api
+package go_serverless_vercel
 
 import (
 	"flag"
