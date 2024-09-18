@@ -16,7 +16,7 @@ var (
 
 func init() {
 	var c config.Config
-	c.RestConf = rest.RestConf{
+	c.Rest.RestConf = rest.RestConf{
 		Host: "0.0.0.0",
 		Port: 8001,
 		ServiceConf: service.ServiceConf{
@@ -24,7 +24,7 @@ func init() {
 		},
 	}
 
-	server = rest.MustNewServer(c.RestConf)
+	server = rest.MustNewServer(c.Rest.RestConf)
 	middleware.RegisterMiddlewares(server)
 
 	ctx := svc.NewServiceContext(c)
