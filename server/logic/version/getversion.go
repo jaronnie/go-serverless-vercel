@@ -24,7 +24,7 @@ func NewGetVersion(ctx context.Context, svcCtx *svc.ServiceContext) *GetVersion 
 
 func (l *GetVersion) GetVersion(req *types.GetVersionRequest) (resp *types.GetVersionResponse, err error) {
 	resp = &types.GetVersionResponse{
-		Version: "1",
+		Version: "2",
 	}
 	return
 }
