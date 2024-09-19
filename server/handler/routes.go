@@ -1,7 +1,7 @@
 package handler
 
 import (
-	version "go-serverless-vercel/server/handler/version"
+	count "go-serverless-vercel/server/handler/count"
 	"go-serverless-vercel/server/svc"
 	"net/http"
 
@@ -13,8 +13,8 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodGet,
-				Path:    "/version",
-				Handler: version.GetVersion(serverCtx),
+				Path:    "/count",
+				Handler: count.GetCount(serverCtx),
 			},
 		},
 		rest.WithPrefix("/api/v1"),

@@ -1,7 +1,6 @@
 package main
 
 import (
-	_ "embed"
 	"go-serverless-vercel/cmd"
 )
 

@@ -6,3 +6,5 @@ gen:
       - gorename go-serverless-vercel/server go-serverless-vercel/internal
     after:
       - gorename go-serverless-vercel/internal go-serverless-vercel/server
+
+  regen-api-handler: true
