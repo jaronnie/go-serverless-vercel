@@ -1,40 +1,18 @@
 # go-serverless-vercel
 
-## Install Jzero Framework
+## 测试验证接口
 
 ```shell
-go install github.com/jzero-io/jzero@latest
-
-jzero check
+curl https://vercel.jaronnie.com/api/v1/version
 ```
 
-## Generate code
+## 开发必看
 
-### Generate server code
+### 配置环境变量
 
-```shell
-jzero gen
-```
+访问: https://vercel.com/username-projects/project_name/settings/environment-variables
 
-### Generate swagger code
+注意替换 `username` 为你的用户名以及 `project_name` 为你的项目名
 
-```shell
-jzero gen swagger
-```
+增加环境变量配置如: CONFIG={"log":{"encoding":"plain"},"rest":{"host":"0.0.0.0","name":"go-serverless-vercel","port":8001}}
 
-you can see generated swagger json in `desc/swagger`
-
-## Build docker image
-
-```shell
-# add a builder first
-docker buildx create --use --name=mybuilder --driver docker-container --driver-opt image=dockerpracticesig/buildkit:master
-
-# build and load
-docker buildx build --platform linux/amd64 --progress=plain -t go-serverless-vercel:latest . --load
-```
-
-## Documents
-
-* https://jzero.jaronnie.com
-* https://sorcererxw.com/zh/articles/vercel-go-microservice
