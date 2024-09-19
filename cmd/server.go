@@ -17,7 +17,6 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-// serverCmd represents the server command
 var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "simpleapi server",
@@ -32,7 +31,6 @@ func Start(cfgFile string) {
 	conf.MustLoad(cfgFile, &c)
 	config.C = c
 
-	// set up logger
 	if err := logx.SetUp(c.Log.LogConf); err != nil {
 		logx.Must(err)
 	}
@@ -48,16 +46,13 @@ func start(svcCtx *svc.ServiceContext) {
 	server := rest.MustNewServer(svcCtx.Config.Rest.RestConf)
 	middleware.RegisterMiddlewares(server)
 
-	// server add api handlers
 	handler.RegisterHandlers(server, svcCtx)
 
-	// server add custom routes
 	svcCtx.Custom.AddRoutes(server)
 
 	group := service.NewServiceGroup()
 	group.Add(server)
 
-	// shutdown listener
 	waitExit := proc.AddShutdownListener(svcCtx.Custom.Stop)
 
 	eg := errgroup.Group{}
@@ -68,7 +63,6 @@ func start(svcCtx *svc.ServiceContext) {
 		return nil
 	})
 
-	// add custom start logic
 	eg.Go(func() error {
 		svcCtx.Custom.Start()
 		return nil

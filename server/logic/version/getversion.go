@@ -2,10 +2,10 @@ package version
 
 import (
 	"context"
-	"github.com/spf13/cast"
 	"go-serverless-vercel/server/svc"
 	"go-serverless-vercel/server/types"
 
+	"github.com/spf13/cast"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
