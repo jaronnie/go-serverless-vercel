@@ -2,11 +2,14 @@ package version
 
 import (
 	"context"
+	"github.com/spf13/cast"
 	"go-serverless-vercel/server/svc"
 	"go-serverless-vercel/server/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
+
+var Version int
 
 type GetVersion struct {
 	logx.Logger
@@ -23,8 +26,9 @@ func NewGetVersion(ctx context.Context, svcCtx *svc.ServiceContext) *GetVersion 
 }
 
 func (l *GetVersion) GetVersion(req *types.GetVersionRequest) (resp *types.GetVersionResponse, err error) {
+	Version += 1
 	resp = &types.GetVersionResponse{
-		Version: "2",
+		Version: cast.ToString(Version),
 	}
 	return
 }
