@@ -2,9 +2,7 @@
 
 ## 测试验证接口
 
-```shell
-curl https://vercel.jaronnie.com/api/v1/version
-```
+[https://vercel.jaronnie.com/api/v1/version](https://vercel.jaronnie.com/api/v1/version)
 
 ## 开发必看
 
