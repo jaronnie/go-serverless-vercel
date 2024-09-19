@@ -4,7 +4,7 @@
 
 ## 测试验证接口
 
-[https://vercel.jaronnie.com/api/v1/version](https://vercel.jaronnie.com/api/v1/version)
+[https://vercel.jaronnie.com/api/v1/count](https://vercel.jaronnie.com/api/v1/count)
 
 ## 开发必看
 
