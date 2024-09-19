@@ -1,5 +1,7 @@
 # go-serverless-vercel
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jaronnie/go-serverless-vercel&project-name=go-serverless-vercel&repository-name=go-serverless-vercel&env=CONFIG)
+
 ## 测试验证接口
 
 [https://vercel.jaronnie.com/api/v1/version](https://vercel.jaronnie.com/api/v1/version)
