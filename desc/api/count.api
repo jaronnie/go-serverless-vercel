@@ -1,6 +1,6 @@
 syntax = "v1"
 
-type Empty {}
+import "common.api"
 
 type GetCountResponse {
 	count int `json:"count"`

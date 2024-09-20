@@ -1,0 +1,19 @@
+syntax = "v1"
+
+type GetTotalDownloadsRequest {
+	message string `json:"message"`
+}
+
+type GetTotalDownloadsResponse {
+	message string `json:"message"`
+}
+
+@server (
+	prefix: /api/v1
+	group:  shields/github
+)
+service goServerlessVercel {
+	@handler GetTotalDownloadsHandler
+	get /shields/github/:org/:repo/pkgs/container/:container/downloads (GetTotalDownloadsRequest) returns (GetTotalDownloadsResponse)
+}
+
