@@ -10,7 +10,9 @@ var (
 )
 
 type GetTotalDownloadsRequest struct {
-	Message string `json:"message"`
+	Org       string `path:"org"`
+	Repo      string `path:"repo"`
+	Container string `path:"container"`
 }
 
 type GetTotalDownloadsResponse struct {

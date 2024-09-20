@@ -1,7 +1,9 @@
 syntax = "v1"
 
 type GetTotalDownloadsRequest {
-	message string `json:"message"`
+	org       string `path:"org"`
+	repo      string `path:"repo"`
+	container string `path:"container"`
 }
 
 type GetTotalDownloadsResponse {
