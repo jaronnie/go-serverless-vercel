@@ -14,10 +14,3 @@ type GetTotalDownloadsRequest struct {
 	Repo      string `path:"repo"`
 	Container string `path:"container"`
 }
-
-type Badge struct {
-	SchemaVersion int    `json:"schemaVersion"`
-	Label         string `json:"label"`
-	Message       string `json:"message"`
-	Color         string `json:"color"`
-}

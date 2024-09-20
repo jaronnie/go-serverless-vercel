@@ -17,12 +17,12 @@ func GetTotalDownloads(svcCtx *svc.ServiceContext) http.HandlerFunc {
 			return
 		}
 
-		l := github.NewGetTotalDownloads(r.Context(), svcCtx)
-		resp, err := l.GetTotalDownloads(&req)
+		l := github.NewGetTotalDownloads(r.Context(), svcCtx, w)
+		err := l.GetTotalDownloads(&req)
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
-			httpx.OkJsonCtx(r.Context(), w, resp)
+			httpx.Ok(w)
 		}
 	}
 }

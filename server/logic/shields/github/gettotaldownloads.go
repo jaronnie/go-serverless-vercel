@@ -2,12 +2,14 @@ package github
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
-	"github.com/spf13/cast"
 	"go-serverless-vercel/server/svc"
 	"go-serverless-vercel/server/types"
+	"net/http"
 
 	"github.com/gocolly/colly/v2"
+	"github.com/spf13/cast"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -15,27 +17,21 @@ type GetTotalDownloads struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
+	w      http.ResponseWriter
 }
 
-func NewGetTotalDownloads(ctx context.Context, svcCtx *svc.ServiceContext) *GetTotalDownloads {
+func NewGetTotalDownloads(ctx context.Context, svcCtx *svc.ServiceContext, w http.ResponseWriter) *GetTotalDownloads {
 	return &GetTotalDownloads{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
-		svcCtx: svcCtx,
+		svcCtx: svcCtx, w: w,
 	}
 }
 
-func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsRequest) (resp *types.Badge, err error) {
+func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsRequest) error {
 	c := colly.NewCollector(colly.Async(true))
 
 	var totalDownloads int
-
-	//c.OnHTML("div.lh-condensed.d-flex.flex-column.flex-items-baseline.pr-1", func(e *colly.HTMLElement) {
-	//	e.ForEach("h3", func(_ int, h *colly.HTMLElement) {
-	//		title := h.Attr("title")
-	//		fmt.Println("Title:", title)
-	//	})
-	//})
 
 	c.OnHTML("div.lh-condensed.d-flex.flex-column.flex-items-baseline.pr-1 h3", func(e *colly.HTMLElement) {
 		totalDownloadsText := e.Attr("title")
@@ -46,18 +42,25 @@ func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsReques
 
 	c.OnResponse(func(r *colly.Response) {})
 
-	err = c.Visit(fmt.Sprintf("https://github.com/%s/%s/pkgs/container/%s", req.Org, req.Repo, req.Container))
+	err := c.Visit(fmt.Sprintf("https://github.com/%s/%s/pkgs/container/%s", req.Org, req.Repo, req.Container))
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	c.Wait()
 
-	resp = &types.Badge{
+	resp := &types.Badge{
 		SchemaVersion: 1,
 		Label:         "pulls",
 		Message:       fmt.Sprintf("%d", totalDownloads),
 		Color:         "orange",
 	}
-	return
+
+	marshal, err := json.Marshal(resp)
+	if err != nil {
+		return err
+	}
+	l.w.Header().Set("Content-Type", "text/html")
+	_, _ = l.w.Write(marshal)
+	return nil
 }

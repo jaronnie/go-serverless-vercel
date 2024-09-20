@@ -14,6 +14,6 @@ type GetTotalDownloadsRequest {
 )
 service goServerlessVercel {
 	@handler GetTotalDownloadsHandler
-	get /shields/github/:org/:repo/pkgs/container/:container/downloads (GetTotalDownloadsRequest) returns (Badge)
+	get /shields/github/:org/:repo/pkgs/container/:container/downloads (GetTotalDownloadsRequest)
 }
 
