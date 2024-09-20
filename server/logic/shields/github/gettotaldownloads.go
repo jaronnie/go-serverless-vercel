@@ -60,7 +60,7 @@ func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsReques
 	if err != nil {
 		return err
 	}
-	l.w.Header().Set("Content-Type", "text/html")
+	l.w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 	_, _ = l.w.Write(marshal)
 	return nil
 }
