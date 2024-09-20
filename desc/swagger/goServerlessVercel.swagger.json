@@ -1,0 +1,124 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/count": {
+      "get": {
+        "operationId": "GetCountHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetCountResponse"
+            }
+          }
+        },
+        "tags": [
+          "count"
+        ]
+      }
+    },
+    "/api/v1/shields/github/{org}/{repo}/pkgs/container/{container}/downloads": {
+      "get": {
+        "operationId": "GetTotalDownloadsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "container",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "shields/github"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Badge": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "label": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "title": "Badge",
+      "required": [
+        "schemaVersion",
+        "label",
+        "message",
+        "color"
+      ]
+    },
+    "Empty": {
+      "type": "object",
+      "title": "Empty"
+    },
+    "GetCountResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "GetCountResponse",
+      "required": [
+        "count"
+      ]
+    },
+    "GetTotalDownloadsRequest": {
+      "type": "object",
+      "title": "GetTotalDownloadsRequest"
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

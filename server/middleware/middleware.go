@@ -6,6 +6,6 @@ import (
 )
 
 func RegisterMiddlewares(server *rest.Server) {
-	httpx.SetOkHandler(OKHandler)
+	//httpx.SetOkHandler(OKHandler)
 	httpx.SetErrorHandler(ErrorHandler)
 }

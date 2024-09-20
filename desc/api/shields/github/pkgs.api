@@ -1,0 +1,19 @@
+syntax = "v1"
+
+import "../shields.api"
+
+type GetTotalDownloadsRequest {
+	org       string `path:"org"`
+	repo      string `path:"repo"`
+	container string `path:"container"`
+}
+
+@server (
+	prefix: /api/v1
+	group:  shields/github
+)
+service goServerlessVercel {
+	@handler GetTotalDownloadsHandler
+	get /shields/github/:org/:repo/pkgs/container/:container/downloads (GetTotalDownloadsRequest)
+}
+
