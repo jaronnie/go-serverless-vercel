@@ -60,6 +60,9 @@ func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsReques
 	if err != nil {
 		return err
 	}
+	l.w.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+	l.w.Header().Set("Pragma", "no-cache")
+	l.w.Header().Set("Expires", "0")
 	l.w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 	_, _ = l.w.Write(marshal)
 	return nil
