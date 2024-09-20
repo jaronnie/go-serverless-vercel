@@ -61,4 +61,3 @@ func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsReques
 	}
 	return
 }
-g
