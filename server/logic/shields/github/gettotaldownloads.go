@@ -55,7 +55,7 @@ func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsReques
 
 	resp = &types.Badge{
 		SchemaVersion: 1,
-		Label:         "image pulls",
+		Label:         "image%20pulls",
 		Message:       fmt.Sprintf("%d", totalDownloads),
 		Color:         "orange",
 	}
