@@ -1,13 +1,11 @@
 syntax = "v1"
 
+import "../shields.api"
+
 type GetTotalDownloadsRequest {
 	org       string `path:"org"`
 	repo      string `path:"repo"`
 	container string `path:"container"`
-}
-
-type GetTotalDownloadsResponse {
-	message string `json:"message"`
 }
 
 @server (
@@ -16,6 +14,6 @@ type GetTotalDownloadsResponse {
 )
 service goServerlessVercel {
 	@handler GetTotalDownloadsHandler
-	get /shields/github/:org/:repo/pkgs/container/:container/downloads (GetTotalDownloadsRequest) returns (GetTotalDownloadsResponse)
+	get /shields/github/:org/:repo/pkgs/container/:container/downloads (GetTotalDownloadsRequest) returns (Badge)
 }
 

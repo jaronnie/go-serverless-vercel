@@ -1,0 +1,9 @@
+syntax = "v1"
+
+type Badge {
+	schemaVersion int    `json:"schemaVersion"`
+	label         string `json:"label"`
+	message       string `json:"message"`
+	color         string `json:"color"`
+}
+
