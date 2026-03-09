@@ -33,7 +33,7 @@ func (l *GetTotalDownloads) GetTotalDownloads(req *types.GetTotalDownloadsReques
 
 	var totalDownloads int
 
-	c.OnHTML("div.lh-condensed.d-flex.flex-column.flex-items-baseline.pr-1 h3", func(e *colly.HTMLElement) {
+	c.OnHTML("div.lh-condensed.d-flex.flex-column.flex-items-baseline.tmp-pr-1 h3", func(e *colly.HTMLElement) {
 		totalDownloadsText := e.Attr("title")
 		totalDownloads = cast.ToInt(totalDownloadsText)
 	})
